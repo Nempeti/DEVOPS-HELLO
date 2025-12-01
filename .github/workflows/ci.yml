@@ -1,0 +1,38 @@
+name: CI - Build and Push Docker image
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/devops-hello:latest
+          echo "Building image $IMAGE_NAME"
+          docker build -t $IMAGE_NAME .
+
+      - name: Push Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/devops-hello:latest
+          echo "Pushing image $IMAGE_NAME"
+          docker push $IMAGE_NAME

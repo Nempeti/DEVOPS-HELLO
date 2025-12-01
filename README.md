@@ -2,7 +2,7 @@
 
 Egyszerű Flask alapú „Hello DevOps” alkalmazás a DevOps beadandóhoz.
 
-## Futatás
+## Futatás 
 
 ```bash
 pip install -r requirements.txt

@@ -75,7 +75,28 @@ Ez a projekt trunk‑based fejlesztési modellt használ. A `main` branch a stab
 
 Mivel a GitHub Container Registry‑ben lévő `devops-hello` image publikus, az alábbi parancsok futtatásához **nem szükséges** bejelentkezni:
 
+## CD – Felhő szolgáltatás Render.com segítségével
 
-docker pull ghcr.io/nempeti/devops-hello:latest
-docker run -p 8080:8080 ghcr.io/nempeti/devops-hello:latest
+A projekt a Render.com ingyenes felhőszolgáltatással is használható, így az alkalmazás HTTP-n elérhető a felhőben.
+
+### Deploy lépések
+
+1. Bejelentkeztem a [Render.com](https://render.com) oldalra GitHub-fiókkal.
+2. Új szolgáltatást hoztam létre: **New → Web Service**.
+3. Kiválasztottam a `Nempeti/DEVOPS-HELLO` GitHub repót.
+4. Beállítások:
+   - *Environment*: Python 3
+   - *Build command*: `pip install -r requirements.txt`
+   - *Start command*: `python app.py`
+   - Free (ingyenes) csomag
+5. A deploy után a Render automatikusan buildeli az alkalmazást és elindítja a Flask szervert.
+6. Az app.py a Render által megadott PORT környezeti változót használja, így a szolgáltatás a megfelelő porton indul el a felhőben.
+
+### Publikus URL
+
+Az alkalmazás az alábbi URL-en érhető el addig, amíg az ingyenes csomag engedi:
+
+
+https://devops-hello.onrender.com
+
 

@@ -2,7 +2,7 @@ Készítette: Németh Péter - YVM2OZ
 
 # DEVOPS-HELLO
 
-Ez egy egyszerű Flask alapú „Hello DevOps” alkalmazás a DevOps tantárgy beadandó feladathoz. A célom az, hogy egy webalkalmazáson keresztül bemutassa a DevOps folyamatok fő lépéseit. Pl. a kódkészítés, verziókövetés, buildelés, konténerizálás és CI pipeline használatát.
+Ez egy egyszerű Flask alapú „Hello DevOps” alkalmazás a DevOps tantárgy beadandó feladathoz. A célom az, hogy egy webalkalmazáson keresztül bemutassa a DevOps folyamatok fő lépéseit. Pl. a kódkészítés, verziókövetés, buildelés, konténerizálás és CI pipeline használatát illetve a render.com szolgáltatás segítségével megjelenjen a https://devops-hello.onrender.com oldalon is.
 
 ## Követelmények
 

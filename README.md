@@ -27,3 +27,25 @@ pip install -r requirements.txt
 
 # Alkalmazás futtatása
 python app.py
+
+## Docker
+A projekt tartalmaz egy `Dockerfile`‑t, amellyel konténerbe csomagolható az alkalmazás.
+
+### Image építése
+docker build -t devops-hello:latest
+
+## Konténer futtatása
+docker run -p 8080:8080 devops-hello:latest
+
+A konténer a http://localhost:8080 címen érhető el ezáltal.
+
+# Bejelentkezés (egyszeri lépés)
+echo $CR_PAT | docker login ghcr.io -u <felhasználónév> --password-stdin
+
+# Image lehúzása
+docker pull ghcr.io/<felhasználónév>/devops-hello:latest
+
+# Konténer futtatása
+docker run -p 8080:8080 ghcr.io/<felhasználónév>/devops-hello:latest
+
+

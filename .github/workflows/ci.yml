@@ -27,12 +27,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/nempeti/devops-hello:latest /devops-hello:latest
+          IMAGE_NAME=ghcr.io/nempeti/devops-hello:latest
           echo "Building image $IMAGE_NAME"
           docker build -t $IMAGE_NAME .
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/nempeti/devops-hello:latest /devops-hello:latest
+          IMAGE_NAME=ghcr.io/nempeti/devops-hello:latest
           echo "Pushing image $IMAGE_NAME"
           docker push $IMAGE_NAME

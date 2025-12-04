@@ -1,3 +1,5 @@
+Készítette: Németh Péter - YVM2OZ
+
 # DEVOPS-HELLO
 
 Ez egy egyszerű Flask alapú „Hello DevOps” alkalmazás a DevOps tantárgy beadandó feladathoz. A célom az, hogy egy webalkalmazáson keresztül bemutassa a DevOps folyamatok fő lépéseit. Pl. a kódkészítés, verziókövetés, buildelés, konténerizálás és CI pipeline használatát.
@@ -47,5 +49,22 @@ docker pull ghcr.io/<felhasználónév>/devops-hello:latest
 
 # Konténer futtatása
 docker run -p 8080:8080 ghcr.io/<felhasználónév>/devops-hello:latest
+
+## CI‑pipeline és container registry
+
+Ez a repó tartalmaz egy GitHub Actions workflow‑t ami automatikusan készít egy Docker‑image‑t majd feltölti a GitHub Container Registry‑be.
+A pipeline lépései:
+
+- letölti a forráskódot
+- bejelentkezik a registry‑be a GitHub Actions saját tokenjével
+- megépíti az image‑t és ghcr.io/<felhasználónév>/devops-hello:latest néven publikálja.
+
+Az elkészült image‑et így használhatod:
+
+# image lehúzása
+docker pull ghcr.io/nempeti/devops-hello:latest
+
+# konténer futtatása
+docker run -p 8080:8080 ghcr.io/nempeti/devops-hello:latest
 
 

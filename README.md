@@ -67,4 +67,15 @@ docker pull ghcr.io/nempeti/devops-hello:latest
 # konténer futtatása
 docker run -p 8080:8080 ghcr.io/nempeti/devops-hello:latest
 
+## Verziókezelés
+
+Ez a projekt trunk‑based fejlesztési modellt használ. A `main` branch a stabil fő ág, a fejlesztések külön feature branch‑eken készülnek. Minden új funkció vagy módosítás saját branch‑en készül majd pull requesten keresztül kerül beolvasztásra a `main` ágba. A commit‑üzenetek igyekeznek tömören leírni (néha csak amit felajánl), milyen változtatás történt (például: „Dockerfile hozzáadása”, „CI workflow beállítása”, „Üzenet frissítése”).
+
+## Megjegyzés a registry használatához
+
+Mivel a GitHub Container Registry‑ben lévő `devops-hello` image publikus, az alábbi parancsok futtatásához **nem szükséges** bejelentkezni:
+
+
+docker pull ghcr.io/nempeti/devops-hello:latest
+docker run -p 8080:8080 ghcr.io/nempeti/devops-hello:latest
 
